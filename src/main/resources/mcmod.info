@@ -1,0 +1,11 @@
+[
+  {
+    "modid": "rngtrader",
+    "name": "RNGTrader",
+    "description": "Client-side Blacksmith RNG observation and Iron-last trade automation for Vanilla 1.7.10.",
+    "version": "${version}",
+    "mcversion": "1.7.10",
+    "authorList": ["KappaTsui"],
+    "dependencies": []
+  }
+]

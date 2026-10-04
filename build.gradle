@@ -1,0 +1,51 @@
+plugins {
+    id 'java'
+    id 'com.gtnewhorizons.retrofuturagradle' version '1.4.9'
+    id 'io.github.goooler.shadow' version '8.1.7'
+}
+
+group = 'rngtrader'
+version = '1.0.0'
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(8) }
+    withSourcesJar()
+}
+minecraft {
+    mcVersion.set('1.7.10')
+    username.set('RNGTraderDev')
+    extraRunJvmArguments.add('-Xmx2G')
+}
+
+repositories {
+    mavenCentral()
+    maven { url = 'https://maven.latticg.com' }
+}
+configurations { embedded }
+configurations.implementation.extendsFrom(configurations.embedded)
+dependencies {
+    embedded 'com.seedfinding:latticg:1.07'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.mockito:mockito-core:2.28.2'
+    testRuntimeOnly 'org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209'
+    testRuntimeOnly 'org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209'
+}
+
+tasks.withType(JavaCompile).configureEach { options.encoding = 'UTF-8' }
+tasks.processResources {
+    inputs.property 'version', project.version
+    filesMatching('mcmod.info') { expand(version: project.version) }
+}
+tasks.shadowJar {
+    configurations = [project.configurations.embedded]
+    archiveClassifier.set('')
+    relocate 'com.seedfinding.latticg', 'rngtrader.internal.latticg'
+    exclude 'META-INF/*.SF', 'META-INF/*.DSA', 'META-INF/*.RSA'
+}
+tasks.jar { archiveClassifier.set('thin') }
+tasks.reobfJar { inputJar.set(tasks.shadowJar.archiveFile) }
+tasks.assemble { dependsOn tasks.reobfJar }
+tasks.test {
+    maxHeapSize = '1536m'
+    testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}

@@ -1,0 +1,500 @@
+{
+  "logSha256": "e867a50319b7ea8c3f050a1f48159b4fe5cd2cb07326a57ecd7a4f7e8d0bd25d",
+  "complete": true,
+  "elapsedSeconds": 1010.129901335,
+  "errors": [],
+  "droppedRecords": 0,
+  "initialization": [
+    {
+      "wallSeconds": 73.215753042,
+      "threadCpuSeconds": 51.862105129,
+      "candidates": 386138,
+      "pending": 79
+    }
+  ],
+  "clockChanges": [
+    {
+      "tick": 524,
+      "entity": 3,
+      "age": -23624
+    }
+  ],
+  "discardedPlans": 26,
+  "refreshes": [
+    {
+      "number": 1,
+      "kind": "DIAMOND_LEGGINGS",
+      "price": 12,
+      "admittedTicks": {
+        "first": 2791,
+        "last": 2793
+      },
+      "closeTicks": {
+        "first": 2793,
+        "last": 2793
+      },
+      "openedTick": 2835,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.82576554
+    },
+    {
+      "number": 2,
+      "kind": "IRON_AXE",
+      "price": 7,
+      "admittedTicks": {
+        "first": 2999,
+        "last": 3001
+      },
+      "closeTicks": {
+        "first": 3001,
+        "last": 3001
+      },
+      "openedTick": 3043,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.80326406
+    },
+    {
+      "number": 3,
+      "kind": "COAL",
+      "price": 19,
+      "admittedTicks": {
+        "first": 3289,
+        "last": 3291
+      },
+      "closeTicks": {
+        "first": 3291,
+        "last": 3291
+      },
+      "openedTick": 3333,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.8004749
+    },
+    {
+      "number": 4,
+      "kind": "IRON_HELMET",
+      "price": 4,
+      "admittedTicks": {
+        "first": 3675,
+        "last": 3677
+      },
+      "closeTicks": {
+        "first": 3677,
+        "last": 3677
+      },
+      "openedTick": 3719,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.80887672
+    },
+    {
+      "number": 5,
+      "kind": "CHAINMAIL_BOOTS",
+      "price": 6,
+      "admittedTicks": {
+        "first": 3897,
+        "last": 3899
+      },
+      "closeTicks": {
+        "first": 3899,
+        "last": 3899
+      },
+      "openedTick": 3941,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.79295404
+    },
+    {
+      "number": 6,
+      "kind": "CHAINMAIL_CHESTPLATE",
+      "price": 13,
+      "admittedTicks": {
+        "first": 4103,
+        "last": 4105
+      },
+      "closeTicks": {
+        "first": 4105,
+        "last": 4105
+      },
+      "openedTick": 4147,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.8284428
+    },
+    {
+      "number": 7,
+      "kind": "IRON_LEGGINGS",
+      "price": 9,
+      "admittedTicks": {
+        "first": 4587,
+        "last": 4589
+      },
+      "closeTicks": {
+        "first": 4588,
+        "last": 4588
+      },
+      "openedTick": 4631,
+      "closedTicks": [
+        43,
+        43
+      ],
+      "observedWallTicks": 43.83089598
+    },
+    {
+      "number": 8,
+      "kind": "DIAMOND_PICKAXE",
+      "price": 10,
+      "admittedTicks": {
+        "first": 4783,
+        "last": 4785
+      },
+      "closeTicks": {
+        "first": 4785,
+        "last": 4785
+      },
+      "openedTick": 4827,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.80093542
+    },
+    {
+      "number": 9,
+      "kind": "IRON_BOOTS",
+      "price": 5,
+      "admittedTicks": {
+        "first": 4989,
+        "last": 4991
+      },
+      "closeTicks": {
+        "first": 4991,
+        "last": 4991
+      },
+      "openedTick": 5033,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.79422184
+    },
+    {
+      "number": 10,
+      "kind": "DIAMOND_BOOTS",
+      "price": 7,
+      "admittedTicks": {
+        "first": 5195,
+        "last": 5197
+      },
+      "closeTicks": {
+        "first": 5197,
+        "last": 5197
+      },
+      "openedTick": 5239,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.79798328
+    },
+    {
+      "number": 11,
+      "kind": "IRON_CHESTPLATE",
+      "price": 13,
+      "admittedTicks": {
+        "first": 5485,
+        "last": 5487
+      },
+      "closeTicks": {
+        "first": 5487,
+        "last": 5487
+      },
+      "openedTick": 5528,
+      "closedTicks": [
+        41,
+        41
+      ],
+      "observedWallTicks": 43.63787664
+    },
+    {
+      "number": 12,
+      "kind": "GOLD_INGOT",
+      "price": 9,
+      "admittedTicks": {
+        "first": 5985,
+        "last": 5987
+      },
+      "closeTicks": {
+        "first": 5987,
+        "last": 5987
+      },
+      "openedTick": 6028,
+      "closedTicks": [
+        41,
+        41
+      ],
+      "observedWallTicks": 43.7330517
+    },
+    {
+      "number": 13,
+      "kind": "CHAINMAIL_LEGGINGS",
+      "price": 9,
+      "admittedTicks": {
+        "first": 6693,
+        "last": 6695
+      },
+      "closeTicks": {
+        "first": 6695,
+        "last": 6695
+      },
+      "openedTick": 6737,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.81102438
+    },
+    {
+      "number": 14,
+      "kind": "DIAMOND_CHESTPLATE",
+      "price": 17,
+      "admittedTicks": {
+        "first": 7101,
+        "last": 7103
+      },
+      "closeTicks": {
+        "first": 7103,
+        "last": 7103
+      },
+      "openedTick": 7145,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.82601198
+    },
+    {
+      "number": 15,
+      "kind": "DIAMOND_HOE",
+      "price": 7,
+      "admittedTicks": {
+        "first": 7425,
+        "last": 7427
+      },
+      "closeTicks": {
+        "first": 7427,
+        "last": 7427
+      },
+      "openedTick": 7468,
+      "closedTicks": [
+        41,
+        41
+      ],
+      "observedWallTicks": 43.75335684
+    },
+    {
+      "number": 16,
+      "kind": "DIAMOND",
+      "price": 5,
+      "admittedTicks": {
+        "first": 7803,
+        "last": 7805
+      },
+      "closeTicks": {
+        "first": 7805,
+        "last": 7805
+      },
+      "openedTick": 7847,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.79683276
+    },
+    {
+      "number": 17,
+      "kind": "IRON_HOE",
+      "price": 5,
+      "admittedTicks": {
+        "first": 8103,
+        "last": 8105
+      },
+      "closeTicks": {
+        "first": 8105,
+        "last": 8105
+      },
+      "openedTick": 8147,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.80405032
+    },
+    {
+      "number": 18,
+      "kind": "DIAMOND_SHOVEL",
+      "price": 7,
+      "admittedTicks": {
+        "first": 8715,
+        "last": 8717
+      },
+      "closeTicks": {
+        "first": 8716,
+        "last": 8716
+      },
+      "openedTick": 8758,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.64472312
+    },
+    {
+      "number": 19,
+      "kind": "CHAINMAIL_HELMET",
+      "price": 5,
+      "admittedTicks": {
+        "first": 9231,
+        "last": 9233
+      },
+      "closeTicks": {
+        "first": 9233,
+        "last": 9233
+      },
+      "openedTick": 9275,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.80589576
+    },
+    {
+      "number": 20,
+      "kind": "IRON_PICKAXE",
+      "price": 8,
+      "admittedTicks": {
+        "first": 10431,
+        "last": 10433
+      },
+      "closeTicks": {
+        "first": 10433,
+        "last": 10433
+      },
+      "openedTick": 10475,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.8063046
+    },
+    {
+      "number": 21,
+      "kind": "DIAMOND_HELMET",
+      "price": 7,
+      "admittedTicks": {
+        "first": 11529,
+        "last": 11531
+      },
+      "closeTicks": {
+        "first": 11530,
+        "last": 11530
+      },
+      "openedTick": 11573,
+      "closedTicks": [
+        43,
+        43
+      ],
+      "observedWallTicks": 43.7889416
+    },
+    {
+      "number": 22,
+      "kind": "DIAMOND_SWORD",
+      "price": 12,
+      "admittedTicks": {
+        "first": 12231,
+        "last": 12233
+      },
+      "closeTicks": {
+        "first": 12233,
+        "last": 12233
+      },
+      "openedTick": 12275,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.78628438
+    },
+    {
+      "number": 23,
+      "kind": "IRON_SWORD",
+      "price": 9,
+      "admittedTicks": {
+        "first": 13239,
+        "last": 13241
+      },
+      "closeTicks": {
+        "first": 13241,
+        "last": 13241
+      },
+      "openedTick": 13283,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.78520138
+    },
+    {
+      "number": 24,
+      "kind": "DIAMOND_AXE",
+      "price": 10,
+      "admittedTicks": {
+        "first": 18387,
+        "last": 18389
+      },
+      "closeTicks": {
+        "first": 18388,
+        "last": 18388
+      },
+      "openedTick": 18431,
+      "closedTicks": [
+        43,
+        43
+      ],
+      "observedWallTicks": 43.79210406
+    },
+    {
+      "number": 25,
+      "kind": "IRON_INGOT",
+      "price": 8,
+      "admittedTicks": {
+        "first": 20685,
+        "last": 20687
+      },
+      "closeTicks": {
+        "first": 20687,
+        "last": 20687
+      },
+      "openedTick": 20728,
+      "closedTicks": [
+        41,
+        41
+      ],
+      "observedWallTicks": 43.63469886
+    }
+  ]
+}

@@ -1,6 +1,8 @@
 .gradle/
 build/
 run/
+logs/
+__pycache__/
 .idea/
 *.iml
 .classpath

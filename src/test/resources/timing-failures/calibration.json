@@ -1,0 +1,558 @@
+[
+  {
+    "event": "offers",
+    "nanoTime": 49035555954,
+    "window": 1,
+    "offers": [
+      {
+        "kind": "IRON_SHOVEL",
+        "price": 4,
+        "disabled": false
+      }
+    ],
+    "received": 48993350104
+  },
+  {
+    "event": "sound",
+    "nanoTime": 49793620359,
+    "name": "mob.villager.haggle",
+    "pitch": 69,
+    "received": 49768373025
+  },
+  {
+    "event": "sound",
+    "nanoTime": 55993566441,
+    "name": "mob.villager.idle",
+    "pitch": 66,
+    "received": 55968526541
+  },
+  {
+    "event": "sound",
+    "nanoTime": 62593780686,
+    "name": "mob.villager.idle",
+    "pitch": 57,
+    "received": 62568137933
+  },
+  {
+    "event": "sound",
+    "nanoTime": 70793548356,
+    "name": "mob.villager.idle",
+    "pitch": 57,
+    "received": 70768947710
+  },
+  {
+    "event": "offers",
+    "nanoTime": 73536030766,
+    "window": 2,
+    "offers": [
+      {
+        "kind": "IRON_SHOVEL",
+        "price": 4,
+        "disabled": false
+      }
+    ],
+    "received": 73492891569
+  },
+  {
+    "event": "sound",
+    "nanoTime": 76133788441,
+    "name": "mob.villager.haggle",
+    "pitch": 68,
+    "received": 76118282129
+  },
+  {
+    "event": "status_sample",
+    "nanoTime": 78292844173,
+    "draws": [
+      11,
+      6,
+      7,
+      3,
+      6,
+      4,
+      1,
+      3,
+      1,
+      0,
+      0
+    ],
+    "earliest": 78036205988,
+    "latest": 78286314791,
+    "contiguous": false
+  },
+  {
+    "event": "sound",
+    "nanoTime": 81033464610,
+    "name": "mob.villager.haggle",
+    "pitch": 61,
+    "received": 81018445680
+  },
+  {
+    "event": "status_sample",
+    "nanoTime": 83292715769,
+    "draws": [
+      11,
+      4,
+      6,
+      5,
+      4,
+      4,
+      4,
+      2,
+      2,
+      2,
+      0
+    ],
+    "earliest": 83028361458,
+    "latest": 83278440242,
+    "contiguous": true
+  },
+  {
+    "event": "sound",
+    "nanoTime": 84201863725,
+    "name": "mob.villager.no",
+    "pitch": 62,
+    "received": 84168964374
+  },
+  {
+    "event": "sound",
+    "nanoTime": 85236911248,
+    "name": "mob.villager.yes",
+    "pitch": 64,
+    "received": 85218791921
+  },
+  {
+    "event": "sound",
+    "nanoTime": 86400282482,
+    "name": "mob.villager.yes",
+    "pitch": 67,
+    "received": 86368431696
+  },
+  {
+    "event": "sound",
+    "nanoTime": 87533756919,
+    "name": "mob.villager.yes",
+    "pitch": 58,
+    "received": 87518518741
+  },
+  {
+    "event": "status_sample",
+    "nanoTime": 88292773498,
+    "draws": [
+      7,
+      7,
+      7,
+      4,
+      7,
+      5,
+      3,
+      2,
+      0,
+      0,
+      1
+    ],
+    "earliest": 88022933219,
+    "latest": 88273294049,
+    "contiguous": true
+  },
+  {
+    "event": "sound",
+    "nanoTime": 88699444759,
+    "name": "mob.villager.yes",
+    "pitch": 60,
+    "received": 88668235246
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89293833967,
+    "name": "mob.villager.yes",
+    "pitch": 63,
+    "received": 89293306770
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294061277,
+    "name": "mob.villager.yes",
+    "pitch": 63,
+    "received": 89293405832
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294083301,
+    "name": "mob.villager.yes",
+    "pitch": 67,
+    "received": 89293413536
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294098295,
+    "name": "mob.villager.yes",
+    "pitch": 62,
+    "received": 89293422576
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294158938,
+    "name": "mob.villager.yes",
+    "pitch": 57,
+    "received": 89293427981
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294172741,
+    "name": "mob.villager.yes",
+    "pitch": 71,
+    "received": 89293449392
+  },
+  {
+    "event": "sound",
+    "nanoTime": 89294184567,
+    "name": "mob.villager.yes",
+    "pitch": 64,
+    "received": 89293454658
+  },
+  {
+    "event": "trade",
+    "nanoTime": 89433355933,
+    "kind": "IRON_SHOVEL",
+    "price": 4,
+    "count": 7,
+    "window": 2,
+    "action": 31,
+    "sounds": [
+      {
+        "name": "mob.villager.yes",
+        "pitch": 63,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293306770
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 63,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293405832
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 67,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293413536
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 62,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293422576
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 57,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293427981
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 71,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293449392
+      },
+      {
+        "name": "mob.villager.yes",
+        "pitch": 64,
+        "x": 0.5,
+        "y": 4.0,
+        "z": 0.5,
+        "time": 89293454658
+      }
+    ]
+  },
+  {
+    "event": "sound",
+    "nanoTime": 90443186663,
+    "name": "mob.villager.no",
+    "pitch": 65,
+    "received": 90424002807
+  },
+  {
+    "event": "sound",
+    "nanoTime": 91599309515,
+    "name": "mob.villager.no",
+    "pitch": 61,
+    "received": 91571848655
+  },
+  {
+    "event": "sound",
+    "nanoTime": 92731340665,
+    "name": "mob.villager.no",
+    "pitch": 60,
+    "received": 92731262077
+  },
+  {
+    "event": "status_sample",
+    "nanoTime": 93290562894,
+    "draws": [
+      5,
+      8,
+      6,
+      2,
+      1,
+      5,
+      3,
+      4,
+      2,
+      1,
+      1
+    ],
+    "earliest": 93022489467,
+    "latest": 93275547031,
+    "contiguous": true
+  },
+  {
+    "event": "sound",
+    "nanoTime": 93891864420,
+    "name": "mob.villager.no",
+    "pitch": 70,
+    "received": 93871304514
+  },
+  {
+    "event": "sound",
+    "nanoTime": 95043696821,
+    "name": "mob.villager.no",
+    "pitch": 61,
+    "received": 95019384652
+  },
+  {
+    "event": "sound",
+    "nanoTime": 96132209345,
+    "name": "mob.villager.no",
+    "pitch": 64,
+    "received": 96119873250
+  },
+  {
+    "event": "sound",
+    "nanoTime": 97231142112,
+    "name": "mob.villager.no",
+    "pitch": 64,
+    "received": 97218841590
+  },
+  {
+    "event": "status_sample",
+    "nanoTime": 98290647941,
+    "draws": [
+      11,
+      4,
+      6,
+      0,
+      7,
+      2,
+      3,
+      1,
+      0,
+      2,
+      1
+    ],
+    "earliest": 98023146263,
+    "latest": 98272844378,
+    "contiguous": true
+  },
+  {
+    "event": "sound",
+    "nanoTime": 98400240879,
+    "name": "mob.villager.no",
+    "pitch": 65,
+    "received": 98368139315
+  },
+  {
+    "event": "sound",
+    "nanoTime": 99592415467,
+    "name": "mob.villager.no",
+    "pitch": 57,
+    "received": 99570655806
+  },
+  {
+    "event": "error",
+    "nanoTime": 99600958802,
+    "reason": "Calibration probe timing exceeded the supported 21..39 tick bounds",
+    "armed": true
+  },
+  {
+    "event": "sound",
+    "nanoTime": 107900105849,
+    "name": "mob.villager.haggle",
+    "pitch": 67,
+    "received": 107868864405
+  },
+  {
+    "event": "sound",
+    "nanoTime": 114396053711,
+    "name": "mob.villager.haggle",
+    "pitch": 67,
+    "received": 114367655749
+  },
+  {
+    "event": "sound",
+    "nanoTime": 119396373835,
+    "name": "mob.villager.haggle",
+    "pitch": 60,
+    "received": 119370425428
+  },
+  {
+    "event": "sound",
+    "nanoTime": 123694642595,
+    "name": "mob.villager.haggle",
+    "pitch": 68,
+    "received": 123668470109
+  },
+  {
+    "event": "sound",
+    "nanoTime": 131231214218,
+    "name": "mob.villager.haggle",
+    "pitch": 59,
+    "received": 131218807012
+  },
+  {
+    "event": "sound",
+    "nanoTime": 136240719823,
+    "name": "mob.villager.haggle",
+    "pitch": 64,
+    "received": 136217493802
+  },
+  {
+    "event": "sound",
+    "nanoTime": 141948065912,
+    "name": "mob.villager.haggle",
+    "pitch": 67,
+    "received": 141918950008
+  },
+  {
+    "event": "sound",
+    "nanoTime": 147640069719,
+    "name": "mob.villager.haggle",
+    "pitch": 59,
+    "received": 147617965002
+  },
+  {
+    "event": "sound",
+    "nanoTime": 152611257402,
+    "name": "mob.villager.haggle",
+    "pitch": 73,
+    "received": 152570335198
+  },
+  {
+    "event": "sound",
+    "nanoTime": 159630371587,
+    "name": "mob.villager.haggle",
+    "pitch": 56,
+    "received": 159618288733
+  },
+  {
+    "event": "sound",
+    "nanoTime": 164336065348,
+    "name": "mob.villager.haggle",
+    "pitch": 74,
+    "received": 164317560548
+  },
+  {
+    "event": "sound",
+    "nanoTime": 169383486191,
+    "name": "mob.villager.haggle",
+    "pitch": 58,
+    "received": 169367536373
+  },
+  {
+    "event": "sound",
+    "nanoTime": 174793048187,
+    "name": "mob.villager.haggle",
+    "pitch": 69,
+    "received": 174768659784
+  },
+  {
+    "event": "sound",
+    "nanoTime": 180280901348,
+    "name": "mob.villager.haggle",
+    "pitch": 58,
+    "received": 180280876171
+  },
+  {
+    "event": "sound",
+    "nanoTime": 185136481691,
+    "name": "mob.villager.haggle",
+    "pitch": 58,
+    "received": 185118036809
+  },
+  {
+    "event": "sound",
+    "nanoTime": 190040893281,
+    "name": "mob.villager.haggle",
+    "pitch": 62,
+    "received": 190018469254
+  },
+  {
+    "event": "sound",
+    "nanoTime": 195449650515,
+    "name": "mob.villager.haggle",
+    "pitch": 68,
+    "received": 195418329674
+  },
+  {
+    "event": "sound",
+    "nanoTime": 200535156336,
+    "name": "mob.villager.haggle",
+    "pitch": 56,
+    "received": 200517484033
+  },
+  {
+    "event": "sound",
+    "nanoTime": 207549456360,
+    "name": "mob.villager.haggle",
+    "pitch": 61,
+    "received": 207518063816
+  },
+  {
+    "event": "sound",
+    "nanoTime": 213599560682,
+    "name": "mob.villager.haggle",
+    "pitch": 68,
+    "received": 213568730629
+  },
+  {
+    "event": "sound",
+    "nanoTime": 219691574528,
+    "name": "mob.villager.haggle",
+    "pitch": 55,
+    "received": 219668178477
+  },
+  {
+    "event": "sound",
+    "nanoTime": 226983805746,
+    "name": "mob.villager.haggle",
+    "pitch": 68,
+    "received": 226968334481
+  },
+  {
+    "event": "sound",
+    "nanoTime": 234780386592,
+    "name": "mob.villager.haggle",
+    "pitch": 59,
+    "received": 234767985324
+  },
+  {
+    "event": "sound",
+    "nanoTime": 240490893964,
+    "name": "mob.villager.haggle",
+    "pitch": 59,
+    "received": 240468470185
+  }
+]

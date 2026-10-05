@@ -130,7 +130,7 @@ public strictfp class BlacksmithRng {
             long upper = (long)(firstDifference(pitches[i] + 1) - 1) * FLOAT_UNIT + (FLOAT_UNIT - 1);
             reverser.addMeasuredSeed(ceilDiv(lower - 1, 4), Math.floorDiv(upper - 1, 4));
         }
-        return reverser.findAllValidSeeds().flatMap(z -> {
+        return reverser.findAllValidSeeds().sequential().peek(z -> Cancel.check()).flatMap(z -> {
             long residue = (DIFF_INVERSE * (z + 3)) & MASK46;
             return LongStream.range(0, 4).map(lift -> residue + lift * MOD46);
         }).filter(seed -> {

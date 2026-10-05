@@ -39,6 +39,14 @@ public class RngModelTest {
         for (int i = 0; i < pitches.length; i++) pitches[i] = rng.sound();
         assertTrue(Arrays.stream(recover(pitches, offsets(12)).toArray()).anyMatch(s -> s == seed));
     }
+    @Test public void seedRecoveryStaysOnTheCallingWorker() {
+        Rng r = new Rng(21732181123213L); int[] pitches = new int[12];
+        for (int i = 0; i < pitches.length; i++) pitches[i] = r.sound();
+        Thread owner = Thread.currentThread();
+        java.util.stream.LongStream candidates = recover(pitches, offsets(12));
+        assertFalse(candidates.isParallel());
+        assertTrue(candidates.peek(s -> assertSame(owner, Thread.currentThread())).anyMatch(s -> s == 21732181123213L));
+    }
     @Test public void everyAcceptedTimingBranchAppendsAndIronIsLast() {
         Random source = new Random(1003); int all = (1 << Kind.values().length) - 1;
         int[] masks = {1 << Kind.IRON_SHOVEL.ordinal(), all ^ (1 << Kind.IRON_INGOT.ordinal()) ^ (1 << Kind.CHAINMAIL_LEGGINGS.ordinal()),

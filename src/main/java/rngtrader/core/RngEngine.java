@@ -51,4 +51,22 @@ public final class RngEngine {
     }
 
     public static long[] recoverSharedStates(int[][] samples) { return ShuffleRng.recover(samples); }
+
+    /** Correlate each possible close tick with the single observed reopen tick. */
+    public void resumeAt(int size, int[] disabled, long anchor, TickInterval close, long opened, OfferData offer) {
+        if (close.first < anchor || opened - close.last < 40 || close.width() > 4 || opened - close.first > 120)
+            throw new IllegalArgumentException("Refresh processing ticks outside the modeled interval");
+        Map<String, BlacksmithRng.State> all = new LinkedHashMap<String, BlacksmithRng.State>();
+        for (long tick = close.first; tick <= close.last; tick++) for (int stock : disabled) {
+            BlacksmithRng.Tracker branch = new BlacksmithRng.Tracker();
+            branch.states = new ArrayList<BlacksmithRng.State>(tracker.states);
+            int wait = Math.toIntExact(tick - anchor), elapsed = Math.toIntExact(opened - tick);
+            try {
+                branch.resumeNew(size, stock, wait, wait, elapsed, elapsed, offer.kind, offer.price);
+                for (BlacksmithRng.State s : branch.states) all.put(s.key(), s);
+            } catch (IllegalStateException excluded) { }
+        }
+        if (all.isEmpty()) throw new IllegalStateException("Refresh excluded all stock/timing models at close " + close + ", reopen " + opened);
+        tracker.states = new ArrayList<BlacksmithRng.State>(all.values()); revision++;
+    }
 }

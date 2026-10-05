@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'rngtrader'
-version = '1.0.0'
+version = '1.1.0'
 
 java {
     toolchain { languageVersion = JavaLanguageVersion.of(8) }
@@ -48,4 +48,19 @@ tasks.assemble { dependsOn tasks.reobfJar }
 tasks.test {
     maxHeapSize = '1536m'
     testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}
+
+// The operator is compiled only for isolated integration runs.
+if (providers.gradleProperty('integrationHarness').isPresent()) {
+    sourceSets.main.java.srcDir('src/integration/java')
+}
+if (providers.gradleProperty('exportLaunch').isPresent()) {
+    tasks.named('runObfClient', JavaExec) {
+        actions.add(actions.size() - 1, { task ->
+            def destination = layout.buildDirectory.file('integration-launch.json').get().asFile
+            def launch = [javaLauncher.get().executablePath.asFile.absolutePath] + allJvmArgs + ['-cp', classpath.asPath, mainClass.get()] + args
+            destination.text = groovy.json.JsonOutput.toJson([command: launch, cwd: workingDir.absolutePath])
+            throw new org.gradle.api.tasks.StopExecutionException()
+        } as Action)
+    }
 }

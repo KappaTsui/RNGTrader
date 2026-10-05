@@ -1,0 +1,19 @@
+{
+  "version": "1.1.0",
+  "java_runtime": "Temurin 8u472-b08",
+  "gradle_jvm": "OpenJDK 21",
+  "production_jar_sha256": "ed4e52e298738960e927e81f589901cbd176fa25497b8728bf322630530a71c8",
+  "production_jar_bytes": 262961,
+  "integration_driver_in_production_jar": false,
+  "full_test_build": {
+    "result": "passed",
+    "tests": 39,
+    "elapsedSeconds": 367
+  },
+  "commit_gate_suite": {
+    "result": "passed",
+    "tests": 8,
+    "testsSharedWithFullBuild": 2
+  },
+  "total_distinct_tests": 45
+}

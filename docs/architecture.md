@@ -28,7 +28,7 @@ Vanilla periodically sends a run of one player-list update per tick in server-li
 
 Exactly 12 distinct players make the complete server status sample observable. Descending Fisher–Yates permutation inversion yields `nextInt(12)` through `nextInt(2)`. Recovery uses eight consecutive samples and a ninth verification sample. The search includes every possible first rejection position and exact replay of subsequent rejection loops. UUID changes, incomplete samples, roster changes, missing updates, and ambiguous repeated permutations reset shared-state recovery.
 
-The model targets the Java 8 `Collections.shuffle()` implementation with a shared `java.util.Random` and descending Fisher–Yates. Java SE specifies the `java.util.Random` algorithm; the default shuffle generator and algorithm are implementation-specific. The observation sequence must match this implementation.
+The model targets the Java 8 `Collections.shuffle()` implementation with a shared `java.util.Random` and descending Fisher–Yates. Java SE specifies the `java.util.Random` algorithm; the default shuffle generator and algorithm are implementation-specific. Sample recovery verifies the observed shuffle sequence against this model.
 
 ## Entity observations and stock
 
@@ -48,17 +48,33 @@ A positive transaction acknowledgment validates the returned stack. The executor
 
 Purchased gear is tracked only in previously empty destination slots. Before dropping it, the executor checks that the slot still contains the expected item, damage, count, and NBT. A player item-pickup packet invalidates ownership during the transaction. Currency outputs are retained.
 
+## Server tick clock
+
+`ServerTickClock` observes Cow Age at metadata index 12. It excludes the initial full metadata snapshot and counts subsequent Age-bearing packets. Mutable server metadata entries can be encoded after a later tick, so repeated encoded Age values each remain a tick marker. Animals already loaded when observation starts enter through a separate discovery path.
+
+Two consecutive World Time intervals must each contain twenty markers. World Time precedes world/entity ticking; a GUI sound or merchant response in the network phase follows that tick's tracker markers. These packet positions provide the entity model's tick anchors. Natural ambient sounds occur earlier in the tick and terminate the controlled session.
+
+An eligible cow stays more than twelve blocks away on at least one horizontal axis. The active cow is retained until its Age reaches -400. A synchronized replacement is selected at a World Time boundary, where all clocks have the same phase. Age -200, a backward Age, tracker loss, dimension change, or failed cadence invalidates the clock. `check` requires a synchronized clock before calibration.
+
 ## Scheduling and interruption
 
-The open merchant container pauses the villager's 40-tick refresh countdown. Free sounds continue to advance and constrain entity inference while the container is held. Model computation runs on a dedicated worker; observations continue to be collected during seed recovery.
+The open merchant container pauses the villager's 40-tick countdown. GUI probes are requested after twenty-one observed ticks; inference receives the measured interval. The inference worker makes coarse/fine model decisions in observation order. A forecast binds the observation version, model revision, roster revision, and clock revision.
 
-A proposed window must append an unseen non-Iron type before the final refresh, or Iron when 25 types already exist. Every retained entity state, shared state, stock branch, and close time in the default `±1 tick` interval must satisfy that condition. Planning excludes windows that overlap the next cached status update and keeps 250 ms boundary margins.
+The planner admits the intended processing tick and both neighbors only when every retained state and stock branch appends an unseen non-Iron type, or Iron at twenty-five existing types. The client sends Close Window at the first marker in that interval. It requires a fresh marker, no queued observations or worker work, and an unchanged forecast. A missed window is discarded while the merchant stays open.
 
-The client thread checks the observation version, roster revision, pending observation queues, preparation report, and deadline immediately before closure. A late plan is discarded. A small temporary screen suppresses movement input during the released interval, and the client interacts with the same villager approximately 2.10 seconds later. Post-refresh filtering accepts only the observed 40–44 tick closed interval and the exact appended type and price.
+Two Tab-Complete requests bracket Close Window on the same connection. The strings `rngtrader_tick_receipt_before` and `rngtrader_tick_receipt_after` select Vanilla's player-name completion branch and yield empty responses. This branch preserves both modeled RNG states. The preceding Age marker of each response bounds the close-processing tick. A receipt outside the admitted interval ends automation and requests reopening.
 
-Pause retains observations and finishes an already-started inventory operation or refresh. Stop cancels future actions and settles an outstanding click acknowledgment; an already-released refresh is reopened before stopping. Release explicitly closes the container. A server-forced close, disconnect, lost entity model, or unexpected offer ends automatic scheduling. If an error occurs while the merchant is deliberately released, the client attempts to reopen it and reports that the resulting offer list must be inspected.
+Once forty ticks have elapsed from the receipt's latest possible close tick, the client requests the merchant again. `MC|TrList` records the reopen-processing tick before any deferred client-container handling. Post-refresh filtering correlates each possible close tick with its resulting closed duration and checks the exact appended type and price. The model accepts measured closed durations of 40..120 ticks.
 
-The timing profile requires a responsive client and a stable local 20 TPS server. Timing estimates are derived from packet receipt timestamps. Server pauses, client stalls, latency spikes, and unobserved external RNG consumers can invalidate timing estimates or RNG predictions.
+Shared status samples use a separate five-second wall-clock schedule. The refresh planner uses a local 20 TPS profile with margins around status updates. The tick clock identifies completed ticks, and the forecast admits an interval for future packet processing. Unexpected status overlap or an out-of-interval receipt stops the session.
+
+Pause retains observations and finishes an in-flight inventory operation or refresh. Stop cancels inference and future actions, settles an outstanding transaction, and reopens an already-released merchant. Release closes the retained merchant. Clock loss, unexpected sounds/offers, movement, or model loss end automatic scheduling.
+
+## Computation and logging
+
+One worker owns inference and consumes LattiCG's enumeration stream sequentially. Enumeration checkpoints use cooperative five-millisecond computation slices with up to five milliseconds of rest. Lattice setup precedes enumeration; JVM GC and OS scheduling affect the time between checkpoints. Pending observations take precedence over a new forecast.
+
+Schema 2 session records include packet sequence and receipt times, model revisions, processing-tick intervals, worker queue/wall/CPU durations, and JVM GC totals. Producers serialize a snapshot into a bounded queue. A dedicated writer flushes in batches; overflow emits a `log_dropped` record.
 
 ## Build and distribution
 

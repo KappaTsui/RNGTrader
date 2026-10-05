@@ -1,0 +1,525 @@
+{
+  "logSha256": "29783ca0cc65be4dcc2dca9a42d01b2d6eed2f0d65a1f5d72a4e6514a30ca2d3",
+  "complete": true,
+  "elapsedSeconds": 2021.185486205,
+  "errors": [],
+  "droppedRecords": 0,
+  "initialization": [
+    {
+      "wallSeconds": 681.451457349,
+      "threadCpuSeconds": 382.025874469,
+      "candidates": 426601,
+      "pending": 748
+    }
+  ],
+  "clockChanges": [
+    {
+      "tick": 542,
+      "entity": 3,
+      "age": -2006
+    },
+    {
+      "tick": 2167,
+      "entity": 16,
+      "age": -22556
+    },
+    {
+      "tick": 24327,
+      "entity": 45,
+      "age": -18996
+    }
+  ],
+  "discardedPlans": 1,
+  "refreshes": [
+    {
+      "number": 1,
+      "kind": "CHAINMAIL_LEGGINGS",
+      "price": 10,
+      "admittedTicks": {
+        "first": 14782,
+        "last": 14784
+      },
+      "closeTicks": {
+        "first": 14784,
+        "last": 14784
+      },
+      "openedTick": 14836,
+      "closedTicks": [
+        52,
+        52
+      ],
+      "observedWallTicks": 53.57192448
+    },
+    {
+      "number": 2,
+      "kind": "IRON_BOOTS",
+      "price": 5,
+      "admittedTicks": {
+        "first": 14981,
+        "last": 14983
+      },
+      "closeTicks": {
+        "first": 14983,
+        "last": 14983
+      },
+      "openedTick": 15025,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.5069321
+    },
+    {
+      "number": 3,
+      "kind": "CHAINMAIL_HELMET",
+      "price": 5,
+      "admittedTicks": {
+        "first": 15280,
+        "last": 15282
+      },
+      "closeTicks": {
+        "first": 15281,
+        "last": 15282
+      },
+      "openedTick": 15323,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.34044924
+    },
+    {
+      "number": 4,
+      "kind": "GOLD_INGOT",
+      "price": 8,
+      "admittedTicks": {
+        "first": 15469,
+        "last": 15471
+      },
+      "closeTicks": {
+        "first": 15471,
+        "last": 15471
+      },
+      "openedTick": 15513,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.5792478
+    },
+    {
+      "number": 5,
+      "kind": "DIAMOND",
+      "price": 4,
+      "admittedTicks": {
+        "first": 15675,
+        "last": 15677
+      },
+      "closeTicks": {
+        "first": 15677,
+        "last": 15677
+      },
+      "openedTick": 15719,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.5801179
+    },
+    {
+      "number": 6,
+      "kind": "IRON_SWORD",
+      "price": 7,
+      "admittedTicks": {
+        "first": 15886,
+        "last": 15888
+      },
+      "closeTicks": {
+        "first": 15887,
+        "last": 15888
+      },
+      "openedTick": 15929,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33526038
+    },
+    {
+      "number": 7,
+      "kind": "DIAMOND_SWORD",
+      "price": 12,
+      "admittedTicks": {
+        "first": 16082,
+        "last": 16084
+      },
+      "closeTicks": {
+        "first": 16083,
+        "last": 16084
+      },
+      "openedTick": 16125,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.34527566
+    },
+    {
+      "number": 8,
+      "kind": "IRON_CHESTPLATE",
+      "price": 11,
+      "admittedTicks": {
+        "first": 16286,
+        "last": 16288
+      },
+      "closeTicks": {
+        "first": 16287,
+        "last": 16288
+      },
+      "openedTick": 16329,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33786712
+    },
+    {
+      "number": 9,
+      "kind": "IRON_HELMET",
+      "price": 5,
+      "admittedTicks": {
+        "first": 16578,
+        "last": 16580
+      },
+      "closeTicks": {
+        "first": 16579,
+        "last": 16580
+      },
+      "openedTick": 16621,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33776648
+    },
+    {
+      "number": 10,
+      "kind": "IRON_HOE",
+      "price": 5,
+      "admittedTicks": {
+        "first": 16790,
+        "last": 16792
+      },
+      "closeTicks": {
+        "first": 16791,
+        "last": 16792
+      },
+      "openedTick": 16833,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.3527578
+    },
+    {
+      "number": 11,
+      "kind": "DIAMOND_HOE",
+      "price": 7,
+      "admittedTicks": {
+        "first": 16975,
+        "last": 16977
+      },
+      "closeTicks": {
+        "first": 16977,
+        "last": 16977
+      },
+      "openedTick": 17019,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.50020702
+    },
+    {
+      "number": 12,
+      "kind": "DIAMOND_BOOTS",
+      "price": 7,
+      "admittedTicks": {
+        "first": 17186,
+        "last": 17188
+      },
+      "closeTicks": {
+        "first": 17187,
+        "last": 17188
+      },
+      "openedTick": 17229,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.34740516
+    },
+    {
+      "number": 13,
+      "kind": "DIAMOND_CHESTPLATE",
+      "price": 16,
+      "admittedTicks": {
+        "first": 17488,
+        "last": 17490
+      },
+      "closeTicks": {
+        "first": 17489,
+        "last": 17490
+      },
+      "openedTick": 17531,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33888262
+    },
+    {
+      "number": 14,
+      "kind": "DIAMOND_AXE",
+      "price": 11,
+      "admittedTicks": {
+        "first": 17695,
+        "last": 17697
+      },
+      "closeTicks": {
+        "first": 17697,
+        "last": 17697
+      },
+      "openedTick": 17739,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.51124892
+    },
+    {
+      "number": 15,
+      "kind": "DIAMOND_HELMET",
+      "price": 7,
+      "admittedTicks": {
+        "first": 17888,
+        "last": 17890
+      },
+      "closeTicks": {
+        "first": 17889,
+        "last": 17890
+      },
+      "openedTick": 17931,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.34629352
+    },
+    {
+      "number": 16,
+      "kind": "DIAMOND_SHOVEL",
+      "price": 7,
+      "admittedTicks": {
+        "first": 18616,
+        "last": 18618
+      },
+      "closeTicks": {
+        "first": 18617,
+        "last": 18618
+      },
+      "openedTick": 18659,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33215244
+    },
+    {
+      "number": 17,
+      "kind": "DIAMOND_LEGGINGS",
+      "price": 11,
+      "admittedTicks": {
+        "first": 18894,
+        "last": 18896
+      },
+      "closeTicks": {
+        "first": 18895,
+        "last": 18896
+      },
+      "openedTick": 18938,
+      "closedTicks": [
+        42,
+        43
+      ],
+      "observedWallTicks": 43.99854128
+    },
+    {
+      "number": 18,
+      "kind": "CHAINMAIL_CHESTPLATE",
+      "price": 14,
+      "admittedTicks": {
+        "first": 19110,
+        "last": 19112
+      },
+      "closeTicks": {
+        "first": 19111,
+        "last": 19112
+      },
+      "openedTick": 19153,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33980354
+    },
+    {
+      "number": 19,
+      "kind": "IRON_AXE",
+      "price": 6,
+      "admittedTicks": {
+        "first": 19408,
+        "last": 19410
+      },
+      "closeTicks": {
+        "first": 19409,
+        "last": 19410
+      },
+      "openedTick": 19451,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.33763898
+    },
+    {
+      "number": 20,
+      "kind": "IRON_LEGGINGS",
+      "price": 8,
+      "admittedTicks": {
+        "first": 19822,
+        "last": 19824
+      },
+      "closeTicks": {
+        "first": 19823,
+        "last": 19824
+      },
+      "openedTick": 19865,
+      "closedTicks": [
+        41,
+        42
+      ],
+      "observedWallTicks": 43.34037774
+    },
+    {
+      "number": 21,
+      "kind": "CHAINMAIL_BOOTS",
+      "price": 6,
+      "admittedTicks": {
+        "first": 20301,
+        "last": 20303
+      },
+      "closeTicks": {
+        "first": 20303,
+        "last": 20303
+      },
+      "openedTick": 20345,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.50361344
+    },
+    {
+      "number": 22,
+      "kind": "DIAMOND_PICKAXE",
+      "price": 11,
+      "admittedTicks": {
+        "first": 21603,
+        "last": 21605
+      },
+      "closeTicks": {
+        "first": 21605,
+        "last": 21605
+      },
+      "openedTick": 21647,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.50133474
+    },
+    {
+      "number": 23,
+      "kind": "IRON_PICKAXE",
+      "price": 7,
+      "admittedTicks": {
+        "first": 23037,
+        "last": 23039
+      },
+      "closeTicks": {
+        "first": 23038,
+        "last": 23039
+      },
+      "openedTick": 23081,
+      "closedTicks": [
+        42,
+        43
+      ],
+      "observedWallTicks": 43.49853432
+    },
+    {
+      "number": 24,
+      "kind": "COAL",
+      "price": 21,
+      "admittedTicks": {
+        "first": 36693,
+        "last": 36695
+      },
+      "closeTicks": {
+        "first": 36695,
+        "last": 36695
+      },
+      "openedTick": 36737,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.50070692
+    },
+    {
+      "number": 25,
+      "kind": "IRON_INGOT",
+      "price": 9,
+      "admittedTicks": {
+        "first": 40923,
+        "last": 40925
+      },
+      "closeTicks": {
+        "first": 40925,
+        "last": 40925
+      },
+      "openedTick": 40967,
+      "closedTicks": [
+        42,
+        42
+      ],
+      "observedWallTicks": 43.57406092
+    }
+  ],
+  "disturbances": [
+    {
+      "event": "client_pause",
+      "duration": 0.25,
+      "cause": "forecast_pending",
+      "monotonic": 87097.823154576,
+      "phaseAtPause": "after_close_send"
+    },
+    {
+      "event": "client_pause",
+      "duration": 0.6,
+      "cause": "merchant_closed",
+      "monotonic": 87099.820549727
+    }
+  ]
+}

@@ -115,8 +115,19 @@ public strictfp class BlacksmithRng {
 
     static long ceilDiv(long n, long d) { return -Math.floorDiv(-n, d); }
 
+    static long differenceLower(int pitch) {
+        long lower = (long)firstDifference(pitch) * FLOAT_UNIT - (FLOAT_UNIT - 1);
+        return ceilDiv(lower - 1, 4);
+    }
+
+    static long differenceUpper(int pitch) {
+        long upper = (long)(firstDifference(pitch + 1) - 1) * FLOAT_UNIT + (FLOAT_UNIT - 1);
+        return Math.floorDiv(upper - 1, 4);
+    }
+
     /** offsets are raw Random.next calls before the first float of each sound. */
     static LongStream recover(int[] pitches, long[] offsets) {
+        Cancel.check();
         if (pitches.length == 0 || offsets.length != pitches.length || offsets[0] != 0)
             throw new IllegalArgumentException("nonempty pitches; matching offsets beginning at zero");
         RandomReverser reverser = new RandomReverser(DIFFERENCE, Collections.emptyList());
@@ -126,9 +137,7 @@ public strictfp class BlacksmithRng {
                 if (offsets[i] < offsets[i - 1] + 2) throw new IllegalArgumentException("overlapping sounds");
                 reverser.addUnmeasuredSeeds(offsets[i] - offsets[i - 1] - 1);
             }
-            long lower = (long)firstDifference(pitches[i]) * FLOAT_UNIT - (FLOAT_UNIT - 1);
-            long upper = (long)(firstDifference(pitches[i] + 1) - 1) * FLOAT_UNIT + (FLOAT_UNIT - 1);
-            reverser.addMeasuredSeed(ceilDiv(lower - 1, 4), Math.floorDiv(upper - 1, 4));
+            reverser.addMeasuredSeed(differenceLower(pitches[i]), differenceUpper(pitches[i]));
         }
         return reverser.findAllValidSeeds().sequential().peek(z -> Cancel.check()).flatMap(z -> {
             long residue = (DIFF_INVERSE * (z + 3)) & MASK46;
@@ -237,10 +246,13 @@ public strictfp class BlacksmithRng {
         void initialize(int[] pitches) {
             if(pitches.length<7) throw new IllegalArgumentException("At least seven consecutive trade sounds required");
             long[] seeds=recover(pitches,offsets(pitches.length)).peek(s -> Cancel.check()).limit(5000001).toArray();
+            initializeSeeds(seeds, pitches.length);
+        }
+        void initializeSeeds(long[] seeds, int sounds) {
             if(seeds.length==0 || seeds.length>5000000) throw new IllegalStateException("Need a more informative batch: "+seeds.length+" seeds");
             states.clear();
             for(int i=0;i<seeds.length;i++) {
-                Rng rng=new Rng(seeds[i]); rng.skip(2L*pitches.length);
+                Rng rng=new Rng(seeds[i]); rng.skip(2L*sounds);
                 seeds[i]=rng.seed;
             }
             if(seeds.length<=8) expand(seeds); else coarse=seeds;

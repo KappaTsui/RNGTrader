@@ -545,6 +545,10 @@ final class TraderService implements TradeExecutor.Sink {
         if (inference != null) say("RNG states=" + inference.states + ", timers=" + inference.timersReady
             + ", shared=" + inference.sharedReady + ", probes=" + inference.probes + ", workerBusy=" + inference.busy
             + ", queued=" + inference.pending());
+        RecoveryProgress recovery = inference == null ? null : inference.recovery;
+        if (recovery != null) say("Seed recovery=" + recovery.stage + " " + recovery.completed + "/" + recovery.total
+            + ", candidates=" + recovery.candidates + ", CPU="
+            + (recovery.cpuNanos < 0 ? "unknown" : String.format(java.util.Locale.ROOT, "%.1fs", recovery.cpuNanos / 1e9)));
     }
     @Override public void select(int index) {
         if (!(mc.thePlayer.openContainer instanceof ContainerMerchant)) return;

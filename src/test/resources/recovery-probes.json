@@ -1,0 +1,193 @@
+{
+  "calibration": [
+    58,
+    63,
+    57,
+    63,
+    67,
+    60,
+    52
+  ],
+  "probes": [
+    {
+      "pitch": 68,
+      "ticks": 22
+    },
+    {
+      "pitch": 58,
+      "ticks": 22
+    },
+    {
+      "pitch": 64,
+      "ticks": 22
+    },
+    {
+      "pitch": 69,
+      "ticks": 22
+    },
+    {
+      "pitch": 62,
+      "ticks": 22
+    },
+    {
+      "pitch": 58,
+      "ticks": 22
+    },
+    {
+      "pitch": 64,
+      "ticks": 24
+    },
+    {
+      "pitch": 60,
+      "ticks": 22
+    },
+    {
+      "pitch": 65,
+      "ticks": 22
+    },
+    {
+      "pitch": 57,
+      "ticks": 22
+    },
+    {
+      "pitch": 66,
+      "ticks": 22
+    },
+    {
+      "pitch": 67,
+      "ticks": 22
+    },
+    {
+      "pitch": 64,
+      "ticks": 22
+    },
+    {
+      "pitch": 54,
+      "ticks": 22
+    },
+    {
+      "pitch": 61,
+      "ticks": 22
+    },
+    {
+      "pitch": 65,
+      "ticks": 22
+    },
+    {
+      "pitch": 59,
+      "ticks": 22
+    },
+    {
+      "pitch": 62,
+      "ticks": 22
+    },
+    {
+      "pitch": 66,
+      "ticks": 22
+    },
+    {
+      "pitch": 67,
+      "ticks": 22
+    },
+    {
+      "pitch": 69,
+      "ticks": 22
+    },
+    {
+      "pitch": 58,
+      "ticks": 22
+    },
+    {
+      "pitch": 65,
+      "ticks": 22
+    },
+    {
+      "pitch": 55,
+      "ticks": 22
+    },
+    {
+      "pitch": 62,
+      "ticks": 22
+    },
+    {
+      "pitch": 55,
+      "ticks": 22
+    },
+    {
+      "pitch": 59,
+      "ticks": 22
+    },
+    {
+      "pitch": 62,
+      "ticks": 23
+    },
+    {
+      "pitch": 73,
+      "ticks": 23
+    },
+    {
+      "pitch": 65,
+      "ticks": 22
+    },
+    {
+      "pitch": 55,
+      "ticks": 22
+    },
+    {
+      "pitch": 55,
+      "ticks": 22
+    },
+    {
+      "pitch": 53,
+      "ticks": 22
+    },
+    {
+      "pitch": 63,
+      "ticks": 22
+    },
+    {
+      "pitch": 68,
+      "ticks": 22
+    },
+    {
+      "pitch": 59,
+      "ticks": 22
+    },
+    {
+      "pitch": 68,
+      "ticks": 22
+    },
+    {
+      "pitch": 53,
+      "ticks": 22
+    },
+    {
+      "pitch": 57,
+      "ticks": 22
+    },
+    {
+      "pitch": 54,
+      "ticks": 22
+    },
+    {
+      "pitch": 62,
+      "ticks": 22
+    },
+    {
+      "pitch": 57,
+      "ticks": 22
+    },
+    {
+      "pitch": 64,
+      "ticks": 22
+    },
+    {
+      "pitch": 57,
+      "ticks": 22
+    },
+    {
+      "pitch": 60,
+      "ticks": 22
+    }
+  ]
+}

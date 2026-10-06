@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'rngtrader'
-version = '1.1.0'
+version = '1.1.1'
 
 java {
     toolchain { languageVersion = JavaLanguageVersion.of(8) }
@@ -48,6 +48,17 @@ tasks.assemble { dependsOn tasks.reobfJar }
 tasks.test {
     maxHeapSize = '1536m'
     testLogging { events 'failed', 'skipped'; exceptionFormat 'full' }
+}
+
+tasks.register('benchmarkSeedRecovery', JavaExec) {
+    group = 'verification'
+    description = 'Compare entity seed recovery on Java 8 with the same computation budget.'
+    dependsOn tasks.testClasses
+    classpath = sourceSets.test.runtimeClasspath
+    mainClass.set('rngtrader.core.SeedRecoveryBenchmark')
+    javaLauncher.set(javaToolchains.launcherFor { languageVersion = JavaLanguageVersion.of(8) })
+    maxHeapSize = '1536m'
+    args layout.buildDirectory.file('reports/seed-recovery.json').get().asFile.absolutePath
 }
 
 // The operator is compiled only for isolated integration runs.

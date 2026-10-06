@@ -24,11 +24,23 @@ final class InferenceWorker implements AutoCloseable {
     private final Telemetry telemetry;
     private final ThreadMXBean cpu = ManagementFactory.getThreadMXBean();
     private final AtomicInteger pending = new AtomicInteger();
+    private int[] calibration;
+    private final List<PendingSound> prefix = new ArrayList<PendingSound>();
     private boolean initialized;
     private volatile boolean closed;
     volatile boolean sharedReady, timersReady, busy;
     volatile int states, probes;
     volatile long revision;
+    volatile RecoveryProgress recovery;
+
+    private static final class PendingSound {
+        final int pitch, low, high;
+        final boolean free;
+        PendingSound(int pitch, int low, int high, boolean free) {
+            this.pitch = pitch; this.low = low; this.high = high; this.free = free;
+        }
+        boolean usable() { return free && low == high && low >= 21 && high <= 39; }
+    }
 
     InferenceWorker(Consumer<String> failure) { this(failure, (event, values) -> { }); }
     InferenceWorker(Consumer<String> failure, Telemetry telemetry) { this.failure = failure; this.telemetry = telemetry; }
@@ -44,7 +56,10 @@ final class InferenceWorker implements AutoCloseable {
                 busy = true; ComputeBudget.enable(); action.run();
                 states = engine.stateCount(); timersReady = engine.timersReady(); revision = engine.revision();
             } catch (CancellationException ignored) { }
-            catch (Exception e) { failure.accept(e.getMessage() == null ? e.toString() : e.getMessage()); }
+            catch (Exception e) {
+                if (!initialized) { calibration = null; prefix.clear(); }
+                failure.accept(e.getMessage() == null ? e.toString() : e.getMessage());
+            }
             finally {
                 ComputeBudget.clear(); busy = false; pending.decrementAndGet();
                 telemetry.record("worker", "operation", name, "queuedNanos", start - queued,
@@ -55,14 +70,54 @@ final class InferenceWorker implements AutoCloseable {
     }
     void initialize(int[] pitches) {
         final int[] copy = pitches.clone();
-        submit("initialize", () -> { engine.initialize(copy); initialized = true; maybeRecover(); });
+        submit("initialize", () -> {
+            if (calibration != null || initialized) throw new IllegalStateException("Calibration already initialized");
+            calibration = copy;
+            report(new RecoveryProgress("collecting_probes", 0, 3, 0, 0, 0));
+            if (copy.length != 7) initializeBuffered(false);
+        });
     }
     void sound(int pitch, int low, int high, boolean free) {
         submit("sound", () -> {
-            if (!initialized) return;
-            engine.observe(pitch, low, high, free); if (free) probes++;
+            PendingSound sound = new PendingSound(pitch, low, high, free);
+            if (!initialized) {
+                if (calibration == null) return;
+                prefix.add(sound);
+                if (!sound.usable()) initializeBuffered(false);
+                else if (prefix.size() == 3) initializeBuffered(true);
+                else report(new RecoveryProgress("collecting_probes", prefix.size(), 3, 0, 0, 0));
+                return;
+            }
+            observe(sound);
             maybeRecover();
         });
+    }
+    private void initializeBuffered(boolean lookahead) {
+        if (lookahead) {
+            RecoveryProbe[] probes = new RecoveryProbe[prefix.size()];
+            for (int i = 0; i < probes.length; i++)
+                probes[i] = new RecoveryProbe(prefix.get(i).pitch, prefix.get(i).low);
+            engine.initialize(calibration, probes, this::report);
+        } else {
+            long start = System.nanoTime(), used = cpuTime();
+            report(new RecoveryProgress("legacy", 0, 1, 0, 0, 0));
+            engine.initialize(calibration);
+            report(new RecoveryProgress("complete", 1, 1, engine.stateCount(), System.nanoTime() - start,
+                used < 0 ? -1 : cpuTime() - used));
+        }
+        for (PendingSound sound : prefix) observe(sound);
+        prefix.clear(); calibration = null; initialized = true;
+        maybeRecover();
+    }
+    private void observe(PendingSound sound) {
+        engine.observe(sound.pitch, sound.low, sound.high, sound.free);
+        if (sound.free) probes++;
+    }
+    private void report(RecoveryProgress progress) {
+        recovery = progress;
+        telemetry.record("entity_recovery", "stage", progress.stage, "completed", progress.completed,
+            "total", progress.total, "candidates", progress.candidates,
+            "elapsedNanos", progress.elapsedNanos, "cpuNanos", progress.cpuNanos);
     }
     void sample(SampleClock.Sample sample) {
         submit("sample", () -> {

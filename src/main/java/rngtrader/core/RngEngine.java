@@ -3,13 +3,30 @@ package rngtrader.core;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.function.Consumer;
 
 /** Single-worker API for the exact entity and shared-Random model. */
 public final class RngEngine {
-    private final BlacksmithRng.Tracker tracker = new BlacksmithRng.Tracker();
+    private BlacksmithRng.Tracker tracker = new BlacksmithRng.Tracker();
     private long revision;
 
-    public void initialize(int[] pitches) { tracker.initialize(pitches); revision++; requireStates(); }
+    public void initialize(int[] pitches) {
+        BlacksmithRng.Tracker initialized = new BlacksmithRng.Tracker();
+        initialized.initialize(pitches);
+        install(initialized);
+    }
+    /** Lookahead constrains the seed; observations still start immediately after calibration. */
+    public void initialize(int[] pitches, RecoveryProbe[] lookahead) { initialize(pitches, lookahead, null); }
+    public void initialize(int[] pitches, RecoveryProbe[] lookahead, Consumer<RecoveryProgress> progress) {
+        long[] seeds = SeedRecovery.recover(pitches, lookahead, progress);
+        BlacksmithRng.Tracker initialized = new BlacksmithRng.Tracker();
+        initialized.initializeSeeds(seeds, pitches.length);
+        install(initialized);
+    }
+    private void install(BlacksmithRng.Tracker initialized) {
+        Cancel.check();
+        tracker = initialized; revision++; requireStates();
+    }
     public void observe(int pitch, int minimum, int maximum, boolean free) {
         tracker.observe(pitch, minimum, maximum, free); revision++; requireStates();
     }
